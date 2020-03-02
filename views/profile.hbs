@@ -71,10 +71,10 @@
         <div style="margin-top:40px" class="card-columns">
             {{#each orders as |order|}}
 
-            <div class="card">
-
+            <div class="card  text-white bg-primary mb-3">
+                <div class="card-header">Restaurant Name : {{order.restaurantUsername}}</div>
                 <div class="card-body">
-                    <h5 class="card-title">Restaurant Name : {{order.restaurantUsername}}</h5>
+
                     <p class="card-text"> Dish Name : {{order.name}}</p>
                     <p class="card-text"> Order Date : {{order.updatedAt}}</p>
                     <p class="card-text"> Quantity : {{order.Quantity}}</p>
