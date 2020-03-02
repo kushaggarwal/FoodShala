@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const { db, Users, Restaurants, Menus } = require("./data/db");
+const { db, Users, Restaurants, Menus, Orders } = require("./data/db");
 
 const app = express();
 app.set("view engine", "hbs");
@@ -264,6 +264,17 @@ app.get("/neworder/:name/:price/:owner", (req, res) => {
     console.log(req.session.username);
     res.render("neworder", { item });
   }
+});
+
+app.post("/placeorder", async (req, res) => {
+  const order = await Orders.create({
+    name: req.body.name,
+    price: req.body.price * req.body.quantity,
+    restaurantUsername: req.body.rname,
+    userUsername: req.body.uname,
+    Quantity: req.body.quantity
+  });
+  res.redirect("/orders");
 });
 
 const customerRouter = require("./routes/customer");

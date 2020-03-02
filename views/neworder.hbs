@@ -50,16 +50,16 @@
 
     <div class="container">
         <h3 style="margin-top:30px">Place Order</h3>
-        <form action="/login" method="POST">
+        <form action="/placeorder" method="POST">
             <div class="form-group">
                 <label for="exampleInputEmail1">Dish Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="username" name="username" value={{item.name}} readonly>
+                    placeholder="name" name="name" value={{item.name}} readonly>
 
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Quantity</label>
-                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="0" name="quantity">
+                <input type="number" value="1" class="form-control" id="exampleInputPassword1" name="quantity">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Restaurant Name</label>
@@ -70,6 +70,11 @@
                 <label for="exampleInputPassword1">Price</label>
                 <input type="number" value={{item.price}} class="form-control" id="exampleInputPassword1" placeholder="price"
                     name="price" readonly>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Username</label>
+                <input type="text" value={{item.username}} class="form-control" id="exampleInputPassword1" placeholder="price"
+                    name="uname" readonly>
             </div>
 
 

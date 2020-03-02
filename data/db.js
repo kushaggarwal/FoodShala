@@ -69,11 +69,36 @@ const Menus = db.define("menu", {
   }
 });
 
+const Orders = db.define("order", {
+  name: {
+    type: Seqeulize.STRING(30)
+  },
+  price: {
+    type: Seqeulize.STRING(75),
+    allowNull: false
+  },
+
+  restaurantUsername: {
+    type: Seqeulize.STRING,
+    allowNull: false
+  },
+  Quantity: {
+    type: Seqeulize.STRING
+  },
+  userUsername: {
+    type: Seqeulize.STRING,
+    allowNull: false
+  }
+});
+
 Menus.belongsTo(Restaurants, { as: "owner" });
+Orders.belongsTo(Restaurants, { as: "restaurant" });
+Orders.belongsTo(Users, { as: "user" });
 
 module.exports = {
   db,
   Users,
   Restaurants,
-  Menus
+  Menus,
+  Orders
 };
