@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Profile</h1>
+
+    <table cellspacing="2" cellpadding="10">
+
+        <tr>
+            <th>Name</th>
+            <td>{{user.name}}</td>
+        </tr>
+
+        <tr>
+            <th>Username</th>
+            <td>{{user.username}}</td>
+        </tr>
+
+        <tr>
+            <th>Email</th>
+            <td>{{user.email}}</td>
+        </tr>
+
+
+
+    </table>
+    <a href="/logout">logout</a>
+
+    <form action="/additem" method="POST">
+        <input placeholder="name" name="username">
+        <br>
+        <input placeholder="price" name="price" type="number">
+        <br>
+        <input type="text" name="owner" value={{user.name}} readonly>
+        <br>
+        <select name="type" type="type">
+            <option>veg</option>
+            <option>nonveg</option>
+
+        </select>
+        <br>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <h1>Menu</h1>
+    <a href="/menu/{{user.name}}">see menu</a>
+</body>
+
+</html>
