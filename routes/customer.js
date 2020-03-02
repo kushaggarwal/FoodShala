@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const { db, Users, Restaurants, Menus } = require("../data/db");
+const { db, Users, Restaurants, Menus, Orders } = require("../data/db");
 const router = require("express").Router();
 
 router.route("/signup").get((req, res) => {
@@ -30,7 +30,20 @@ router.route("/profile").get(async (req, res) => {
     }
   });
   console.log(req.session);
+  orders = await Orders.findAll({
+    attributes: [
+      "name",
+      "price",
+      "Quantity",
+      "restaurantUsername",
+      "updatedAt"
+    ],
+    where: {
+      userUsername: user.username
+    }
+  });
+  console.log(orders);
 
-  res.render("profile", { user });
+  res.render("profile", { user, orders });
 });
 module.exports = router;

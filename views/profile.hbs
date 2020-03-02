@@ -66,6 +66,29 @@
 
 
         </table>
+        <a style="color:white" href="/orders"><button class="btn btn-primary">Place Order</button></a>
+        <h2 style="margin-top:60px">Past Orders</h2>
+        <div style="margin-top:40px" class="card-columns">
+            {{#each orders as |order|}}
+
+            <div class="card">
+
+                <div class="card-body">
+                    <h5 class="card-title">Restaurant Name : {{order.restaurantUsername}}</h5>
+                    <p class="card-text"> Dish Name : {{order.name}}</p>
+                    <p class="card-text"> Order Date : {{order.updatedAt}}</p>
+                    <p class="card-text"> Quantity : {{order.Quantity}}</p>
+                    <p class="card-text">Price : {{order.price}}</p>
+
+
+
+
+                </div>
+            </div>
+
+
+            {{/each}}
+        </div>
     </div>
 
 
