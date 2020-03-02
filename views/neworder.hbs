@@ -49,28 +49,32 @@
 
 
     <div class="container">
-        <h3 style="margin-top:30px">Login</h3>
+        <h3 style="margin-top:30px">Place Order</h3>
         <form action="/login" method="POST">
             <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
+                <label for="exampleInputEmail1">Dish Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="username" name="username">
+                    placeholder="username" name="username" value={{item.name}} readonly>
 
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" name="password">
+                <label for="exampleInputPassword1">Quantity</label>
+                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="0" name="quantity">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Type</label>
-                <select name="type" type="type" class="form-control" id="exampleFormControlSelect1">
-                    <option>restaurant</option>
-                    <option>user</option>
-                </select>
+                <label for="exampleInputPassword1">Restaurant Name</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="0" name="rname" value={{item.ownerUsername}}
+                    readonly>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Price</label>
+                <input type="number" value={{item.price}} class="form-control" id="exampleInputPassword1" placeholder="price"
+                    name="price" readonly>
             </div>
 
 
-            <button type="submit" class="btn btn-primary">Login</button>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
 

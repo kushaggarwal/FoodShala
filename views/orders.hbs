@@ -50,60 +50,44 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/orders">Orders</a>
+                    <a class="nav-link" href="#">Features</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
                 </li>
-
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container">
-        <div class="row">
-            <div class="col">
 
-                <img src="https://wallpaperaccess.com/full/629233.jpg" class=" size rounded float-left" alt="...">
-            </div>
-            <div class="col">
-                <h1 class="text">Welcome to </h1>
+        <h1 style="margin-top:60px">Let's find something for your hunger</h1>
 
-                <h1 class="text" style="color:#eb4d04">Foodshala! </h1>
-                <h3 class="sub">Sure shot destination to satisfy your hunger</h3>
-            </div>
-        </div>
-        <div>
-            <h1 style="margin-top:50px">Which below defines you right now!</h1>
-            <form action="/check" method="POST">
-                <div class="row">
-                    <div class="col">
-                        <input type="radio" name="enter" value="restaurant">
-                        <label style="margin:0 5px;font-size:18pt">Restaurant</label>
-                    </div>
-                    <div class="col">
-                        <input type="radio" name="enter" value="user">
-                        <label style="margin:0 5px;font-size:18pt">Customer</label>
-                    </div>
-                </div>
+        <div style="margin-top:40px" class="card-deck">
+            {{#each items as |item|}}
 
-                <div class="row">
-                    <div class="col">
+            <div class="card">
 
-                    </div>
-                    <div class="col">
-                        <button style="margin-top:20px" class="btn btn-danger" type="submit">lets go</button>
-                    </div>
-                    <div class="col">
-
-                    </div>
+                <div class="card-body">
+                    <h5 class="card-title">Name : {{item.name}}</h5>
+                    <p class="card-text">Price : {{item.price}}</p>
+                    <p class="card-text"> Restaurant : {{item.ownerUsername}}</p>
+                    <a style="color:white" href="/neworder/{{item.name}}/{{item.price}}/{{item.ownerUsername}}">
+                        <button class="btn btn-success">Order Now</button>
+                    </a>
 
                 </div>
+            </div>
 
-            </form>
+
+            {{/each}}
         </div>
-
 
     </div>
 

@@ -240,11 +240,30 @@ app.post("/check", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
+  res.render("home");
+});
+
+app.get("/orders", async (req, res) => {
   items = await Menus.findAll({
     attributes: ["name", "price", "type", "ownerUsername"]
   });
 
-  res.render("home", { items });
+  res.render("orders", { items });
+});
+
+app.get("/neworder/:name/:price/:owner", (req, res) => {
+  if (req.session.username == undefined || req.session.username == null) {
+    res.redirect("/customer/signup");
+  } else {
+    item = {
+      username: req.session.username,
+      name: req.params.name,
+      ownerUsername: req.params.owner,
+      price: req.params.price
+    };
+    console.log(req.session.username);
+    res.render("neworder", { item });
+  }
 });
 
 const customerRouter = require("./routes/customer");

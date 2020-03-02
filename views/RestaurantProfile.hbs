@@ -13,52 +13,112 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+    <style>
+        .bg-light {
+                background-color: #eb4d04 !important
+            }
+        </style>
 </head>
 
 <body>
-    <h1>Profile</h1>
-
-    <table cellspacing="2" cellpadding="10">
-
-        <tr>
-            <th>Name</th>
-            <td>{{user.name}}</td>
-        </tr>
-
-        <tr>
-            <th>Username</th>
-            <td>{{user.username}}</td>
-        </tr>
-
-        <tr>
-            <th>Email</th>
-            <td>{{user.email}}</td>
-        </tr>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light color">
+        <a class="navbar-brand" href="/">FS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
 
 
+                <li class="nav-item">
+                    <a class="nav-link" href="menu/{{user.name}}">Menu Items</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
 
-    </table>
-    <a href="/logout">logout</a>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 style="margin-top:50px">Profile</h1>
 
-    <form action="/restaurant/additem" method="POST">
-        <input placeholder="name" name="username">
-        <br>
-        <input placeholder="price" name="price" type="number">
-        <br>
-        <input type="text" name="owner" value={{user.name}} readonly>
-        <br>
-        <select name="type" type="type">
-            <option>veg</option>
-            <option>nonveg</option>
+        <table cellspacing="2" cellpadding="10">
 
-        </select>
-        <br>
+            <tr>
+                <th>Name</th>
+                <td>{{user.name}}</td>
+            </tr>
 
-        <button type="submit">Add</button>
-    </form>
+            <tr>
+                <th>Username</th>
+                <td>{{user.username}}</td>
+            </tr>
 
-    <h1>Menu</h1>
-    <a href="menu/{{user.name}}">see menu</a>
+            <tr>
+                <th>Email</th>
+                <td>{{user.email}}</td>
+            </tr>
+
+
+
+        </table>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Add new Menu Item
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add new Menu Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/restaurant/additem" method="POST">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Dish Name</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                    placeholder="name" name="username">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Price</label>
+                                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="price"
+                                    name="price">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Restaurant Name</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" name="owner" value={{user.name}}
+                                    readonly> </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Type</label>
+                                <select name="type" type="type" class="form-control" id="exampleFormControlSelect1">
+                                    <option>veg</option>
+                                    <option>nonveg</option>
+                                </select>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Add</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 </body>
 
 </html>

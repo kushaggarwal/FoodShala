@@ -50,7 +50,7 @@ router.route("/menu/:name").get(async (req, res) => {
     }
   });
 
-  res.send(items);
+  res.render("menu", { items });
 });
 
 module.exports = router;
