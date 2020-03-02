@@ -239,8 +239,12 @@ app.post("/check", (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.render("home");
+app.get("/", async (req, res) => {
+  items = await Menus.findAll({
+    attributes: ["name", "price", "type", "ownerUsername"]
+  });
+
+  res.render("home", { items });
 });
 
 const customerRouter = require("./routes/customer");
