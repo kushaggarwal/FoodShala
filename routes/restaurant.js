@@ -47,7 +47,7 @@ router.route("/additem").post(async (req, res) => {
     type: req.body.type,
     ownerUsername: req.body.owner
   });
-  console.log(menu);
+  res.redirect("/restaurant/profile");
 });
 router.route("/menu/:name").get(async (req, res) => {
   items = await Menus.findAll({

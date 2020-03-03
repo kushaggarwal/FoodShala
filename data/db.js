@@ -51,7 +51,7 @@ const Restaurants = db.define("restaurant", {
 
 const Menus = db.define("menu", {
   name: {
-    type: Seqeulize.STRING(30),
+    type: Seqeulize.STRING,
     primaryKey: true,
     unique: true
   },
@@ -71,7 +71,7 @@ const Menus = db.define("menu", {
 
 const Orders = db.define("order", {
   name: {
-    type: Seqeulize.STRING(30)
+    type: Seqeulize.STRING
   },
   price: {
     type: Seqeulize.STRING(75),

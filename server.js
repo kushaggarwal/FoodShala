@@ -274,7 +274,7 @@ app.post("/placeorder", async (req, res) => {
     userUsername: req.body.uname,
     Quantity: req.body.quantity
   });
-  res.redirect("/orders");
+  res.redirect("/customer/profile");
 });
 
 const customerRouter = require("./routes/customer");
